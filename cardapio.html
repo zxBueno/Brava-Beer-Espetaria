@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio — Brava Beer Espetaria</title>
+<meta name="description" content="Confira o cardápio completo da Brava Beer Espetaria: espetos, porções, bebidas e sobremesas.">
+<link rel="stylesheet" href="style.css">
+<script src="cardapio-dados.js"></script>
+<link rel="icon" href="https://i.imgur.com/rjk4vam.jpeg">
+</head>
+<body>
+
+  <nav>
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+      <a href="index.html" class="marca">
+        <img src="https://i.imgur.com/rjk4vam.jpeg" alt="Brava Beer Espetaria" style="height:34px; width:34px; border-radius:50%; object-fit:cover;">
+        BRAVA BEER
+      </a>
+      <div class="links">
+        <a href="index.html#sobre">Sobre</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="index.html#local">Localização</a>
+        <a href="index.html#contato">Contato</a>
+      </div>
+      <a href="index.html#contato" class="cta">Fazer reserva</a>
+    </div>
+  </nav>
+
+  <header style="padding: 140px 0 60px; text-align:center;">
+    <div class="wrap">
+      <span class="mono eyebrow">Cardápio completo</span>
+      <h1 class="titulo-secao" style="margin: 10px auto;">O que está na brasa hoje</h1>
+      <p class="subtitulo-secao" style="margin-left:auto; margin-right:auto; text-align:center;">
+        Preços e disponibilidade podem variar. Consulte o garçom sobre o espeto do dia.
+      </p>
+    </div>
+  </header>
+
+  <section style="padding-top: 0;">
+    <div class="wrap">
+      <div id="cardapio-completo">
+        <p style="color:var(--muted); text-align:center;">Carregando cardápio...</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="marca-footer">BRAVA BEER ESPETARIA</div>
+      <p>&copy; <span id="ano"></span> Brava Beer Espetaria. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Monta o cardápio a partir dos dados fixos em cardapio-dados.js
+    // (edite aquele arquivo para atualizar produtos e preços).
+    // Suporta produtos com preço único ("preco"), produtos com
+    // variações de preço, ex: Dose/Garrafa ("variacoes"), e produtos
+    // com preço "Consultar" ("consultar: true").
+    function montarGradeProdutos(produtos) {
+      const grid = document.createElement('div');
+      grid.className = 'grid-cardapio';
+      produtos.forEach((p) => {
+        const div = document.createElement('div');
+        div.className = 'prato';
+
+        if (p.consultar) {
+          div.innerHTML = `
+            <div class="linha1">
+              <h4>${p.nome}</h4>
+              <span class="preco" style="font-size:13px;">Consultar</span>
+            </div>
+            <div class="desc">${p.descricao || ''}</div>
+          `;
+        } else if (p.variacoes) {
+          const precosHtml = p.variacoes
+            .map((v) => `<div class="linha1"><span style="color:var(--muted); font-size:14px;">${v.nome}</span><span class="preco">R$ ${v.preco.toFixed(2)}</span></div>`)
+            .join('');
+          div.innerHTML = `
+            <h4>${p.nome}</h4>
+            <div class="desc" style="margin-bottom:8px;">${p.descricao || ''}</div>
+            ${precosHtml}
+          `;
+        } else {
+          div.innerHTML = `
+            <div class="linha1">
+              <h4>${p.nome}</h4>
+              <span class="preco">R$ ${p.preco.toFixed(2)}</span>
+            </div>
+            <div class="desc">${p.descricao || ''}</div>
+          `;
+        }
+
+        grid.appendChild(div);
+      });
+      return grid;
+    }
+
+    function montarCardapio() {
+      const container = document.getElementById('cardapio-completo');
+      container.innerHTML = '';
+
+      const categorias = CARDAPIO
+        .map((cat) => {
+          if (cat.subcategorias) {
+            const subcategorias = cat.subcategorias
+              .map((sub) => ({ ...sub, produtos: sub.produtos.filter((p) => p.disponivel !== false) }))
+              .filter((sub) => sub.produtos.length > 0);
+            return { ...cat, subcategorias };
+          }
+          return { ...cat, produtos: cat.produtos.filter((p) => p.disponivel !== false) };
+        })
+        .filter((cat) => (cat.subcategorias ? cat.subcategorias.length > 0 : cat.produtos.length > 0));
+
+      if (categorias.length === 0) {
+        container.innerHTML = '<p style="color:var(--muted); text-align:center;">Cardápio em atualização. Volte em breve!</p>';
+        return;
+      }
+
+      categorias.forEach((cat) => {
+        const secao = document.createElement('div');
+        secao.style.marginBottom = '60px';
+        secao.innerHTML = `<h2 class="titulo-secao" style="font-size:28px; margin-bottom:24px;">${cat.nome}</h2>`;
+
+        if (cat.subcategorias) {
+          cat.subcategorias.forEach((sub) => {
+            const tituloSub = document.createElement('h3');
+            tituloSub.textContent = sub.nome;
+            tituloSub.style.cssText = 'font-size:18px; color:var(--dourado); margin:24px 0 14px;';
+            secao.appendChild(tituloSub);
+            secao.appendChild(montarGradeProdutos(sub.produtos));
+          });
+        } else {
+          secao.appendChild(montarGradeProdutos(cat.produtos));
+        }
+
+        container.appendChild(secao);
+      });
+    }
+
+    montarCardapio();
+  </script>
+</body>
+</html>

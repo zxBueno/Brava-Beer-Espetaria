@@ -1,0 +1,226 @@
+/* ============================================================
+   style.css — Identidade visual do site institucional.
+   Paleta: brasa (laranja), dourado cerveja, fundo carvão.
+   Tipografia: display condensada (clima de letreiro de espetaria)
+   + corpo em sans-serif legível.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap');
+
+:root {
+  --carvao: #150F0B;
+  --carvao-2: #1E1712;
+  --brasa: #E15B26;
+  --brasa-forte: #C43C14;
+  --dourado: #E8A33D;
+  --creme: #F3EAD9;
+  --muted: #A9998A;
+  --border: rgba(243, 234, 217, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Work Sans', Arial, sans-serif;
+  background: var(--carvao);
+  color: var(--creme);
+  line-height: 1.5;
+}
+
+.display {
+  font-family: 'Anton', Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 0.95;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- NAV ---------- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: linear-gradient(to bottom, rgba(21,15,11,0.95), transparent);
+}
+nav .marca { display: flex; align-items: center; gap: 10px; font-family:'Anton'; font-size: 20px; }
+
+/* LOGO: quando tiver o arquivo, troque este círculo por:
+   <img src="images/logo.png" alt="Brava Beer Espetaria" height="36"> */
+nav .marca .logo-placeholder {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--dourado), var(--brasa-forte));
+}
+nav .links { display: flex; gap: 26px; }
+nav .links a { font-size: 14px; font-weight: 600; color: var(--muted); transition: color .2s; }
+nav .links a:hover { color: var(--creme); }
+nav .cta {
+  background: var(--brasa); color: #fff; padding: 10px 18px; border-radius: 6px;
+  font-weight: 700; font-size: 14px;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 100px 24px 60px;
+}
+
+/* Fundo com brasa/fumaça: gradientes radiais animados sutilmente */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 85%, rgba(225,91,38,0.35), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 75% 90%, rgba(232,163,61,0.22), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(196,60,20,0.25), transparent 70%);
+  animation: respirar 8s ease-in-out infinite alternate;
+}
+@keyframes respirar {
+  from { opacity: 0.75; transform: scale(1); }
+  to   { opacity: 1; transform: scale(1.04); }
+}
+
+/* Partículas de brasa subindo — elemento assinatura da página */
+.brasas span {
+  position: absolute;
+  bottom: -10px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--dourado);
+  box-shadow: 0 0 8px 2px rgba(232,163,61,0.8);
+  animation: subir linear infinite;
+  opacity: 0;
+}
+@keyframes subir {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
+
+.hero-conteudo { position: relative; z-index: 2; max-width: 780px; }
+.hero .mono { color: var(--dourado); margin-bottom: 18px; display: inline-block; }
+.hero h1 { font-size: clamp(42px, 9vw, 92px); }
+.hero h1 .destaque { color: var(--brasa); }
+.hero p { color: var(--muted); font-size: 18px; max-width: 520px; margin: 22px auto 34px; }
+
+.botoes { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.botao {
+  padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 15px;
+  display: inline-block;
+}
+.botao.primario { background: var(--brasa); color: #fff; }
+.botao.secundario { border: 1px solid var(--border); color: var(--creme); }
+
+/* ---------- SEÇÕES GERAIS ---------- */
+section { padding: 100px 0; position: relative; }
+.eyebrow { color: var(--dourado); }
+.titulo-secao { font-size: clamp(32px, 5vw, 48px); margin: 10px 0 16px; }
+.subtitulo-secao { color: var(--muted); max-width: 560px; margin-bottom: 50px; font-size: 16px; }
+
+/* ---------- SOBRE ---------- */
+.sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.sobre-grid p { color: var(--muted); margin-bottom: 16px; font-size: 16px; }
+.sobre-numeros { display: flex; gap: 40px; margin-top: 30px; }
+.sobre-numeros .num { font-family: 'Anton'; font-size: 40px; color: var(--brasa); }
+.sobre-numeros .rotulo { color: var(--muted); font-size: 13px; }
+.sobre-imagem {
+  aspect-ratio: 4/5; border-radius: 12px;
+  background: linear-gradient(160deg, var(--carvao-2), var(--carvao));
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 13px; text-align: center; padding: 20px;
+}
+/* IMAGEM: troque este bloco placeholder por
+   <img src="images/fachada.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+   quando tiver a foto da fachada/salão. */
+
+/* ---------- CARDÁPIO (prévia) ---------- */
+.cardapio-preview { background: var(--carvao-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.grid-cardapio { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.prato {
+  background: var(--carvao);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+  transition: border-color .2s;
+}
+.prato:hover { border-color: var(--brasa); }
+.prato .linha1 { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.prato .linha1 h4 { font-size: 17px; }
+.prato .linha1 .preco { font-family: 'JetBrains Mono'; color: var(--dourado); font-size: 15px; white-space: nowrap; }
+.prato .desc { color: var(--muted); font-size: 14px; margin-top: 8px; }
+.prato .categoria { color: var(--brasa); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: block; font-weight: 700; }
+
+/* ---------- LOCALIZAÇÃO / CONTATO ---------- */
+.contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.info-linha { display: flex; gap: 14px; margin-bottom: 22px; align-items: flex-start; }
+.info-linha .icone {
+  width: 38px; height: 38px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(225,91,38,0.15); color: var(--brasa);
+  display: flex; align-items: center; justify-content: center; font-weight: 700;
+}
+.info-linha h5 { font-size: 15px; margin-bottom: 4px; }
+.info-linha p, .info-linha a { color: var(--muted); font-size: 14px; }
+
+.mapa-placeholder {
+  border-radius: 12px; border: 1px solid var(--border);
+  background: var(--carvao-2);
+  aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 13px; text-align: center; padding: 20px;
+}
+
+/* ---------- REDES SOCIAIS ---------- */
+.redes { display: flex; gap: 12px; margin-top: 20px; }
+.redes a {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  transition: background .2s, border-color .2s;
+}
+.redes a:hover { background: var(--brasa); border-color: var(--brasa); }
+
+/* ---------- FOOTER ---------- */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+footer .marca-footer { font-family: 'Anton'; color: var(--creme); font-size: 18px; margin-bottom: 10px; }
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 800px) {
+  nav .links { display: none; }
+  .sobre-grid, .contato-grid { grid-template-columns: 1fr; }
+  .sobre-imagem { order: -1; aspect-ratio: 16/9; }
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before, .brasas span { animation: none; }
+}

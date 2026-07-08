@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brava Beer Espetaria — Espetos na brasa e  cerveja gelada.</title>
+<meta name="description" content="Brava Beer Espetaria: espetos na brasa, cerveja gelada e ambiente animado. Confira o cardápio, horários e localização.">
+<link rel="stylesheet" href="style.css">
+<script src="cardapio-dados.js"></script>
+<link rel="icon" href="https://i.imgur.com/rjk4vam.jpeg">
+</head>
+<body>
+
+  <nav>
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+      <a href="#" class="marca">
+        <img src="https://i.imgur.com/rjk4vam.jpeg" alt="Brava Beer Espetaria" style="height:34px; width:34px; border-radius:50%; object-fit:cover;">
+        BRAVA BEER
+      </a>
+      <div class="links">
+        <a href="#sobre">Sobre</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="#local">Localização</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <a href="cardapio.html" class="cta">Ver cardápio</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="brasas" id="brasas"></div>
+    <div class="hero-conteudo">
+      <span class="mono">Espetaria</span>
+      <h1 class="display">CARNE NA<br><span class="destaque">BRASA</span>, CERVEJA<br>SEMPRE GELADA</h1>
+      <p>Espetos suculentos grelhados na hora, cerveja gelada e aquele clima de boteco animado. Vem sentir o cheiro da brasa.</p>
+      <div class="botoes">
+        <a href="cardapio.html" class="botao primario">Ver cardápio completo</a>
+        <a href="#local" class="botao secundario">Como chegar</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="sobre">
+    <div class="wrap sobre-grid">
+      <div class="sobre-imagem">
+        <img src="https://i.imgur.com/udqWPFD.jpeg" alt="Fachada da Brava Beer Espetaria" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+      <div>
+        <span class="mono eyebrow">Nossa história</span>
+        <h2 class="titulo-secao">Feito na brasa,<br>do jeito certo</h2>
+        <p>A Brava Beer Espetaria nasceu da paixão por espeto bem feito: carne selecionada, tempero na medida e aquele ponto exato na churrasqueira.</p>
+        <p>Mais do que uma espetaria, somos um point pra reunir os amigos, tomar uma cerveja gelada e curtir a noite sem pressa.</p>
+        <div class="sobre-numeros">
+          <div>
+            <div class="num">+15</div>
+            <div class="rotulo">opções de espeto</div>
+          </div>
+          <div>
+            <div class="num">3</div>
+            <div class="rotulo">dias por semana</div>
+          </div>
+          <div>
+            <div class="num">100%</div>
+            <div class="rotulo">na brasa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cardapio-preview">
+    <div class="wrap">
+      <span class="mono eyebrow">Mais pedidos</span>
+      <h2 class="titulo-secao">Destaques do cardápio</h2>
+      <p class="subtitulo-secao">Uma prévia do que te espera. O cardápio completo, com todas as categorias e preços atualizados, está sempre disponível na página do cardápio.</p>
+      <div class="grid-cardapio" id="destaques">
+        <!-- Preenchido dinamicamente a partir de cardapio-dados.js -->
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="cardapio.html" class="botao primario">Ver cardápio completo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="local">
+    <div class="wrap contato-grid">
+      <div>
+        <span class="mono eyebrow">Onde estamos</span>
+        <h2 class="titulo-secao">Localização &amp; horários</h2>
+
+        <div class="info-linha">
+          <div class="icone">@</div>
+          <div>
+            <h5>Endereço</h5>
+            <!-- IMPORTANTE: substituir pelo endereço real -->
+            <p>Rua Filippo Juvara, 135 - Jardim Ipanema (Zona Leste), São Paulo - SP</p>
+          </div>
+        </div>
+
+        <div class="info-linha">
+          <div class="icone">⏱</div>
+          <div>
+            <h5>Horário de funcionamento</h5>
+            <!-- IMPORTANTE: ajustar para o horário real de funcionamento -->
+            <p>Quinta: 19h - 23h<br>
+            Sexta: 19h - 00h <br>
+            Sábado: 16h - 00h</p>
+          </div>
+        </div>
+
+        <div class="info-linha">
+          <div class="icone">☎</div>
+          <div>
+            <h5>Contato</h5>
+            <!-- IMPORTANTE: substituir pelo WhatsApp/telefone real -->
+            <a href="https://wa.me/5500000000000" target="_blank">Indisponível no momento.</a>
+          </div>
+        </div>
+
+        <div class="redes">
+          <!-- IMPORTANTE: substituir "#" pelos links reais das redes sociais -->
+          <a href="https://www.instagram.com/bravabeer.espetaria?igsh=bHpscWk3dDNiZ3p2" aria-label="Instagram">IG</a>
+          <a href="https://wa.me/5500000000000" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+
+      <iframe
+        id="contato"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.228991112848!2d-46.50035632360005!3d-23.560217861552285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce670040293a5b%3A0xef0e1cc2baf938f!2sBrava%20Beer%20%26%20Espetaria!5e0!3m2!1spt-BR!2sbr!4v1782872301473!5m2!1spt-BR!2sbr"
+        style="width:100%; aspect-ratio:4/3; border:0; border-radius:12px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="marca-footer">BRAVA BEER ESPETARIA</div>
+      <p>&copy; <span id="ano"></span> Brava Beer Espetaria. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Gera as partículas de brasa subindo no hero
+    const container = document.getElementById('brasas');
+    for (let i = 0; i < 18; i++) {
+      const span = document.createElement('span');
+      span.style.left = Math.random() * 100 + '%';
+      span.style.animationDuration = (6 + Math.random() * 6) + 's';
+      span.style.animationDelay = (Math.random() * 8) + 's';
+      container.appendChild(span);
+    }
+
+    // ------------------------------------------------------------
+    // Prévia dos destaques, usando os dados fixos de cardapio-dados.js
+    // (já preparado para categorias com subcategorias, ex: Bebidas,
+    // produtos com variações de preço, ex: Dose/Garrafa, e produtos
+    // com preço "Consultar")
+    // ------------------------------------------------------------
+    const destaques = document.getElementById('destaques');
+    const todosProdutos = CARDAPIO.flatMap((c) => {
+      if (c.subcategorias) {
+        return c.subcategorias.flatMap((sub) =>
+          sub.produtos.filter((p) => p.disponivel !== false).map((p) => ({ ...p, categoriaNome: c.nome }))
+        );
+      }
+      return c.produtos.filter((p) => p.disponivel !== false).map((p) => ({ ...p, categoriaNome: c.nome }));
+    });
+
+    if (todosProdutos.length === 0) {
+      destaques.innerHTML = '<p style="color:var(--muted);">Cardápio em atualização. Volte em breve!</p>';
+    } else {
+      todosProdutos.slice(0, 6).forEach((p) => {
+        const div = document.createElement('div');
+        div.className = 'prato';
+
+        let precoExibido;
+        if (p.consultar) {
+          precoExibido = 'Consultar';
+        } else if (p.variacoes) {
+          precoExibido = `A partir de R$ ${Math.min(...p.variacoes.map((v) => v.preco)).toFixed(2)}`;
+        } else {
+          precoExibido = `R$ ${p.preco.toFixed(2)}`;
+        }
+
+        div.innerHTML = `
+          <span class="categoria">${p.categoriaNome}</span>
+          <div class="linha1">
+            <h4>${p.nome}</h4>
+            <span class="preco">${precoExibido}</span>
+          </div>
+          <div class="desc">${p.descricao || ''}</div>
+        `;
+        destaques.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
