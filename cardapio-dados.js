@@ -25,67 +25,67 @@ const CARDAPIO = [
       {
         nome: 'Espeto Bovino',
         descricao: 'Carne bovina macia, temperada na medida certa.',
-        preco: 10.00,
+        preco: 11.00,
       },
       {
         nome: 'Espeto de Kafta S/ Queijo',
         descricao: 'Carne moída temperada com especiarias, sem queijo.',
-        preco: 8.00,
+        preco: 10.00,
       },
       {
         nome: 'Espeto de Kafta C/ Queijo',
         descricao: 'Carne moída temperada com especiarias, com queijo.',
-        preco: 10.00,
+        preco: 11.00,
       },
       {
         nome: 'Medalhão Bovino',
         descricao: 'Medalhão de carne bovina, suculento e saboroso.',
-        preco: 14.00,
+        preco: 15.00,
       },
       {
         nome: 'Espeto de Linguiça Grossa',
         descricao: 'Linguiça Grossa, sem pimenta.',
-        preco: 8.00,
+        preco: 10.00,
       },
       {
         nome: 'Espeto de Linguiça Apimentada',
         descricao: 'Linguiça apimentada, para quem gosta de um sabor mais intenso.',
-        preco: 8.00,
+        preco: 10.00,
       },
       {
         nome: 'Espeto de Peito de Frango',
         descricao: 'Peito de frango temperado.',
-        preco: 8.00,
+        preco: 10.00,
       },
       {
         nome: 'Espeto de Coxa de Frango',
         descricao: 'Coxa de frango temperada.',
-        preco: 8.00,
+        preco: 10.00,
       },
       {
         nome: 'Espeto de Coração',
         descricao: 'Excelente espeto de coração de frango.',
-        preco: 8.00,
+        preco: 10.00,
       },
       {
         nome: 'Espeto de Medalhão de Frango',
         descricao: 'Medalhão de frango, suculento e saboroso.',
-        preco: 12.00,
+        preco: 13.00,
       },
       {
         nome: 'Espeto de Mussarela Defumada',
         descricao: 'Mussarela defumada, que derrete na boca.',
-        preco: 12.00,
+        preco: 13.00,
       },
       {
         nome: 'Espeto de Queijo Coalho',
         descricao: 'Queijo coalho, grelhado na brasa.',
-        preco: 12.00,
+        preco: 13.00,
       },
       {
         nome: 'Espeto de Pão de Alho',
         descricao: 'Pão de alho, crocante e saboroso.',
-        preco: 8.00,
+        preco: 10.00,
       },
       // Exemplo de produto temporariamente indisponível (não aparece no site):
       // {
@@ -123,7 +123,7 @@ const CARDAPIO = [
       {
         nome: 'Batata Frita',
         descricao: 'Porção generosa, crocante por fora e macia por dentro.',
-        preco: 25.00,
+        preco: 27.00,
       },
       {
         nome: 'Frango à Passarinho',
@@ -277,14 +277,14 @@ const CARDAPIO = [
             nome: 'Jack Daniels',
             variacoes: [
               { nome: 'Dose', preco: 25.00 },
-              { nome: 'Garrafa', preco: 130.00 },
+              { nome: 'Garrafa', preco: 210.00 },
             ],
           },
           {
             nome: 'Jack Daniels Green Apple',
             variacoes: [
               { nome: 'Dose', preco: 25.00 },
-              { nome: 'Garrafa', preco: 130.00 },
+              { nome: 'Garrafa', preco: 210.00 },
             ],
           },
           {
