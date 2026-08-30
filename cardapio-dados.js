@@ -24,67 +24,54 @@ const CARDAPIO = [
     produtos: [
       {
         nome: 'Espeto Bovino',
-        descricao: 'Carne bovina macia, temperada na medida certa.',
         preco: 11.00,
       },
       {
         nome: 'Espeto de Kafta S/ Queijo',
-        descricao: 'Carne moída temperada com especiarias, sem queijo.',
         preco: 10.00,
       },
       {
         nome: 'Espeto de Kafta C/ Queijo',
-        descricao: 'Carne moída temperada com especiarias, com queijo.',
         preco: 11.00,
       },
       {
         nome: 'Medalhão Bovino',
-        descricao: 'Medalhão de carne bovina, suculento e saboroso.',
         preco: 15.00,
       },
       {
         nome: 'Espeto de Linguiça Grossa',
-        descricao: 'Linguiça Grossa, sem pimenta.',
         preco: 10.00,
       },
       {
         nome: 'Espeto de Linguiça Apimentada',
-        descricao: 'Linguiça apimentada, para quem gosta de um sabor mais intenso.',
         preco: 10.00,
       },
       {
         nome: 'Espeto de Peito de Frango',
-        descricao: 'Peito de frango temperado.',
         preco: 10.00,
       },
       {
         nome: 'Espeto de Coxa de Frango',
-        descricao: 'Coxa de frango temperada.',
         preco: 10.00,
       },
       {
         nome: 'Espeto de Coração',
-        descricao: 'Excelente espeto de coração de frango.',
         preco: 10.00,
       },
       {
         nome: 'Espeto de Medalhão de Frango',
-        descricao: 'Medalhão de frango, suculento e saboroso.',
         preco: 13.00,
       },
       {
         nome: 'Espeto de Mussarela Defumada',
-        descricao: 'Mussarela defumada, que derrete na boca.',
         preco: 13.00,
       },
       {
         nome: 'Espeto de Queijo Coalho',
-        descricao: 'Queijo coalho, grelhado na brasa.',
         preco: 13.00,
       },
       {
         nome: 'Espeto de Pão de Alho',
-        descricao: 'Pão de alho, crocante e saboroso.',
         preco: 10.00,
       },
       // Exemplo de produto temporariamente indisponível (não aparece no site):
@@ -118,17 +105,20 @@ const CARDAPIO = [
     ],
   },
   {
-    nome: 'Porções',
+    nome: 'Porções e Lanches',
     produtos: [
       {
         nome: 'Batata Frita',
-        descricao: 'Porção generosa, crocante por fora e macia por dentro.',
         preco: 27.00,
       },
       {
         nome: 'Frango à Passarinho',
-        descricao: 'Frango temperado, frito na hora.',
         preco: 30.00,
+      },
+      {
+        nome: 'Lanche de Espeto',
+        descricao: 'Espeto bovino ou Linguiça',
+        preco: 15.00,
       },
     ],
   },
@@ -145,6 +135,7 @@ const CARDAPIO = [
           { nome: 'Original 600ml', preco: 14.00 },
           { nome: 'Heineken 269ml', preco: 7.00 },
           { nome: 'Heineken 600ml', preco: 16.00 },
+          { nome: 'Serramalte 600ml', preco: 15.00 },
           { nome: 'Corona 330ml', preco: 10.00 },
           { nome: 'Stella Puro Gold 473ml', preco: 10.00 },
           { nome: 'Michelob Ultra 330ml', preco: 10.00 },
@@ -168,6 +159,7 @@ const CARDAPIO = [
         nome: 'Caipirinhas',
         produtos: [
           { nome: 'Caipirinha de Velho Barreiro', preco: 15.00 },
+          { nome: 'Caipirinha de Sakê', preco: 20.00 },
           { nome: 'Caipirinha de Vodka', descricao: 'Vodka Smirnoff', preco: 25.00 },
         ],
       },
@@ -248,13 +240,6 @@ const CARDAPIO = [
             ],
           },
           {
-            nome: 'Double Black Licor',
-            variacoes: [
-              { nome: 'Dose', preco: 40.00 },
-              { nome: 'Garrafa', preco: 360.00 },
-            ],
-          },
-          {
             nome: 'Gin Beefeater Tradicional',
             variacoes: [
               { nome: 'Dose', preco: 15.00 },
@@ -267,6 +252,16 @@ const CARDAPIO = [
               { nome: 'Dose', preco: 18.00 },
               { nome: 'Garrafa', preco: 135.00 },
             ],
+          },
+          {
+            nome: 'Paratudo',
+            variacoes: [
+              { nome: 'Dose', preco: 7.00 },
+            ],
+          },
+          {
+            nome: 'Salinas',
+            consultar: true,
           },
         ],
       },
@@ -313,6 +308,13 @@ const CARDAPIO = [
             variacoes: [
               { nome: 'Dose', preco: 45.00 },
               { nome: 'Garrafa', preco: 400.00 },
+            ],
+          },
+          {
+            nome: 'Double Black',
+            variacoes: [
+              { nome: 'Dose', preco: 40.00 },
+              { nome: 'Garrafa', preco: 360.00 },
             ],
           },
         ],
@@ -363,18 +365,18 @@ const CARDAPIO = [
     ],
   },
   // {
-   // nome: 'Sobremesas',
-    // produtos: [
-      // {
-        // nome: 'Abacaxi na Brasa',
-        // descricao: 'Abacaxi grelhado com canela e um toque de mel.',
-        // preco: 12.00,
-      // },
-      // {
-        // nome: 'Petit Gateau',
-        // descricao: 'Bolo de chocolate quente com sorvete de creme.',
-       // preco: 16.00,
-      // },
-    // ],
+  //   nome: 'Sobremesas',
+  //   produtos: [
+  //     {
+  //       nome: 'Abacaxi na Brasa',
+  //       descricao: 'Abacaxi grelhado com canela e um toque de mel.',
+  //       preco: 12.00,
+  //     },
+  //     {
+  //       nome: 'Petit Gateau',
+  //       descricao: 'Bolo de chocolate quente com sorvete de creme.',
+  //       preco: 16.00,
+  //     },
+  //   ],
   // },
 ];
